@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Śledzenie ruchu myszką</title>
+    <style>
+        body {
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <h1></h1>
+    <script>
+        const inputResult = document.querySelector('h1');
+        document.addEventListener('mousemove', function (event) {
+
+            const x = event.clientX;
+            const y = event.clientY;
+            const height = window.innerHeight;
+            const width = window.innerWidth;
+
+            inputResult.innerText = `${x}, ${y}`
+
+            const red = (x/width)*100;
+            const green = (y/height)*100;
+            const blue = (((x/width)*100)-((y/height)*100))/2;
+            
+            document.body.style.backgroundColor = `rgb(${red}%, ${green}%,${blue}%)`
+
+
+        })
+
+        // const moveInfo = document.querySelector('h1');
+        // document.body.addEventListener('mousemove', function(event){
+        //     moveInfo.textContent = `${event.clientX}, ${event.clientY}`;
+
+        // document.body.style.backgroundColor = `rgb(${event.clientX/3}, ${event.clientY/2}, ${(event.clientX/event.clientY) *20})`;
+        // })
+    </script>
+</body>
+
+</html>
